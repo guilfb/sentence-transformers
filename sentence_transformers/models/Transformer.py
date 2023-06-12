@@ -18,8 +18,8 @@ class Transformer(nn.Module):
     :param tokenizer_name_or_path: Name or path of the tokenizer. When None, then model_name_or_path is used
     """
     def __init__(self, model_name_or_path: str, max_seq_length: Optional[int] = None,
-                 model_args: Dict = {}, cache_dir: Optional[str] = None,
-                 tokenizer_args: Dict = {}, do_lower_case: bool = False,
+                 model_args: Dict = {"low_cpu_mem_usage": True}, cache_dir: Optional[str] = None,
+                 tokenizer_args: Dict = {"low_cpu_mem_usage": True}, do_lower_case: bool = False,
                  tokenizer_name_or_path : str = None):
         super(Transformer, self).__init__()
         self.config_keys = ['max_seq_length', 'do_lower_case']
